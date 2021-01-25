@@ -1,17 +1,24 @@
 from numpy import *
+
+
 #Problem 1:
+
 def print_matrix(M_lol):
     print (array(M_lol))
+    
+    
 #Problem 2:
+
 def get_lead_ind(row):
     for i in range(len(row)):
         if (row[i] != 0):
             return i
     return len(row)
-#Problem 3:
-def get_row_to_swap(M, start_i):
 
-    
+
+#Problem 3:
+
+def get_row_to_swap(M, start_i):
     leading_nonzeros = {} 
     # dict stores the row index and index of first nonzero
     for i in range(start_i,len(M)):
@@ -28,19 +35,26 @@ def get_row_to_swap(M, start_i):
 
 
 #Problem 4:
+
 def add_rows_coefs(r1, c1, r2, c2):
     temp = []
     for k in range(len(r1)):
         temp.append(c1*r1[k] + c2*r2[k])
     return temp
+
+
 #Problem 5:
+
 def eliminate(M, row_to_sub, best_lead_ind):
     for a in range(row_to_sub+1, len(M)):
         factor = M[a][best_lead_ind] / M[row_to_sub][best_lead_ind]
         for b in range(len(M[a])):
             M[a][b] = M[a][b] - factor*M[row_to_sub][b]
     return M
+
+
 #Problem 6:
+
 def forward_step(M):
     """Takes in a matrix M, (list of lists)
     and applies the forward step of gaussian elimination
@@ -57,8 +71,6 @@ def forward_step(M):
         print("====================================================")
 
     
-
-
 #Problem 7:
 
 def backward_step(M):
@@ -79,14 +91,11 @@ def backward_step(M):
             ind = get_lead_ind(M[i])
             M[i][-1] = (M[i][-1])/(M[i][ind])
             M[i][ind] = 1
-        except IndexError: continue 
-
-        
-    
-            
-
-
+        except IndexError: 
+            continue  
+       
 #Problem 8:
+
 import copy
 def solve(M, b):
     #making the augmented matrix:
@@ -105,28 +114,12 @@ def solve(M, b):
     return x
 
 
-
-
-
-            
-
 if __name__ == "__main__":
     M_b = [[ 1 ,-2 ,3 ,22],[ 3, 10 ,1 ,314],[ 1, 5, 3, 92]]
-    #M_b = [[ 1  ,  2  , -1   ,-4],
-        #[ 2 ,  3,   -1,   -11],
-        #[-2,    0,   -3,   22]]
-
-    
-    
-
     b = [-4,-11,22]
-    
-    
+   
     forward_step(M_b)
     backward_step(M_b)
-
-    #print("x=",solve(M, b))
-    
     
     print("\nOutput after forward and backward step")
     print(array(M_b))
