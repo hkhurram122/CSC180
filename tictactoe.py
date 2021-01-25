@@ -5,7 +5,6 @@
 ---+---+---
    | X | 
 '''
-
 import random
 import sys
 
@@ -17,16 +16,14 @@ def print_board_and_legend(board):
         if i < 2:
             print("---+---+---" + " "*5 + "---+---+---")
         
-      
+ 
 def make_empty_board():
     board = []
     for i in range(3):
         board.append([" "]*3)
     return board
-    
-    
-##########
-
+   
+   
 def get_coord(square_num):
     coord = []
     if square_num > 0 and square_num < 10:
@@ -65,7 +62,6 @@ def get_free_squares(board):
 
 
 # b
-
 def make_random_move(board, mark):
     """Finds a random free square in board, and puts string mark 
     in the FREE square"""
@@ -81,10 +77,6 @@ def make_random_move(board, mark):
 
 
 # problem 3
-# figure out if the game is over 
-
-
-# a
 
 def is_row_all_marks(board, row_i, mark):
     """Return True iff the row with index row_i in board
@@ -106,8 +98,6 @@ def is_col_all_marks(board, col_i, mark):
     return True
     
 
-
-
 def is_diag_all_marks(board, mark):
     """Returns True iff one of the diags has all elements
     equal to mark"""
@@ -128,42 +118,21 @@ def is_diag_all_marks(board, mark):
     return False
 
 
-
 def is_win(board, mark):
     """Returns True iff the mark mark won on the board board"""
-
+  
     for a in range(3):
         if (is_diag_all_marks(board, mark) or is_col_all_marks(board, a, mark)
         or is_row_all_marks(board, a, mark)):
             print(f"The winner is: {mark}")
             return True
-    
     if len(get_free_squares(board)) == 0: # list is empty
         print("Tie")
         return True
-    
     return False # does not find a winning match 
 
 
-
-'''
-
 # problem 4
-
-
-
-
-# a function that loops through all 
-coordinates of free random spaces generated..
-
-if any pair would return True from is_win, then place 0 to win
-
-else:
-    just choose a random spot (like originally)
-
-'''
-
-
 
 def bot_win_move(board, mark):
     """Tries to put the computer's mark in every free square
@@ -190,8 +159,7 @@ def bot_win_move(board, mark):
             board[free_squares[i][0]][free_squares[i][1]] = " "
     return False
     
-
-
+    
 def user_play(board, mark):
     print(mark)
     input_str = 0
@@ -211,30 +179,20 @@ def bot_play(board, mark):
 
     print_board_and_legend(board)
 
-
-
-
+    
 def game_start(game_end, board, mark):
     while not is_win(board, mark):
         if (mark == 'X'):
             user_play(board, mark)
             mark = 'O'
             continue 
-         
         if (mark == 'O'): 
             bot_play(board, mark)
             if is_win(board, mark):
                 break
             else:
                 mark = 'X'
-
     sys.exit()
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
@@ -242,18 +200,11 @@ if __name__ == '__main__':
     print_board_and_legend(board)    
     
     print("\n\n")
-    
     board = [[" ", " ", " "],
              [" ", " ", " "],
              [" ", " ", " "]]
     
-    print_board_and_legend(board)            
-    
-
-
-
+    print_board_and_legend(board)           
     game_end = False
     mark = "X"
-
     game_start(game_end, board, mark)
-
