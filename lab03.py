@@ -1,11 +1,9 @@
-
-# Problem 1:
-
-
-
+import math
+import time
 
 
 # Problem 2:
+
 def sum_cubes(n):
     temp = 0
     for i in range(1, n + 1):
@@ -37,17 +35,7 @@ def check_sums_up_to_n(N):
         return False
 
 
-
-
-
-
-
-
-
-
-
-# Problem 2: Sums of Cubes (HASSAN)
-
+# Problem 2: Sums of Cubes
 
 def compute_sum(n):
     sum_1 = 0
@@ -56,14 +44,13 @@ def compute_sum(n):
     return sum_1
 
 
-# computing the sum using the formula
+# Computing the sum using the formula
 def sum_formula1(n):
     sum_0 = ((n**2)*((n+1)**2))/ 4
     return sum_0
 
 
 def check_sum1(n):
-    # computing the sum using the formula
     sum_1 = compute_sum(n)
     sum_2 = sum_formula1(n)
 
@@ -79,8 +66,6 @@ def check_sums_up_to_n1(N):
         if not check_sum1(i):
             return False
     return True
-
-
 
 
 # Problem 3:
@@ -100,10 +85,6 @@ pi_approx = 4 * final_sum
 print(pi_approx)
 
 
-
-
-
-'''
 def leibniz_sum(k):
     final_sum = 0
     for a in range(k+1):
@@ -115,16 +96,7 @@ def leibniz_sum(k):
         term = numerator/denominator
         final_sum += term
     return (4 * final_sum)
-'''
 
-
-
-'''
-
-# BAD RUNTIME COMPLEXITY O(n2)
-
-import math
-import time
 
 def leibniz_sum(k):
     final_sum = 0
@@ -141,7 +113,7 @@ def leibniz_sum(k):
 
 def sum_more_pi(n):
     """
-    Return the number of terms needed to be added in the
+    Returns the number of terms needed to be added in the
     summation to approximate pi to n significant digits.
     """
     
@@ -158,9 +130,5 @@ def sum_more_pi(n):
         print(pi_approx)
         k += 1 
         print(k)
-
+        
     return k
-
-
-print(sum_more_pi(5))
-'''
