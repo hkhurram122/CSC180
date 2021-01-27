@@ -5,6 +5,7 @@
 ---+---+---
    | X | 
 '''
+
 import random
 import sys
 
