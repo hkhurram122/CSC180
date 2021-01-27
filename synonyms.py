@@ -128,13 +128,14 @@ def run_similarity_test(filename, semantic_descriptors, similarity_fn):
 
 
 '''
-#Testing code:
-import time
-start_time = time.time()
-filenames = ["gutenberg1.txt", "gutenberg2.txt"]
-semantics = build_semantic_descriptors_from_files(filenames)
-res = run_similarity_test("test.txt", semantics, cosine_similarity)
-print(str(res) +  " percent of the guesses were correct")
-print (time.time() - start_time)
+if __name__ == "__main__":
+    #Testing code:
+    import time
+    start_time = time.time()
+    filenames = ["gutenberg1.txt", "gutenberg2.txt"]
+    semantics = build_semantic_descriptors_from_files(filenames)
+    res = run_similarity_test("test.txt", semantics, cosine_similarity)
+    print(str(res) +  " percent of the guesses were correct")
+    print (time.time() - start_time)
 
 '''
